@@ -15,7 +15,7 @@ class TestCase extends Orchestra
 
         $this->app['config']->set(
             'buttondown.api.key',
-            $_ENV['BUTTONDOWN_KEY'],
+            getenv('BUTTONDOWN_KEY'),
         );
         $this->app['config']->set(
             'buttondown.api.url',
