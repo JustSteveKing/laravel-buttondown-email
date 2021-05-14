@@ -42,8 +42,6 @@ jobs:
 
       - name: Execute tests
         run: vendor/bin/phpunit
-        with:
-          BUTTONDOWN_KEY: ${{ secrets.BUTTONDOWN_KEY }}
         env:
           BUTTONDOWN_KEY: ${{ secrets.BUTTONDOWN_KEY }}
 
