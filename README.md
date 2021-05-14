@@ -99,7 +99,7 @@ class SubscribeController extends Controler
             'email' => $request->get('email'), // required
             'metadata' => $request->get('metadata', null), // optional
             'notes' => $request->get('notes', null), // optional
-            'referrel_url' => $request->get('referrer_url', null), // optional
+            'referrer_url' => $request->get('referrer_url', null), // optional
             'tags' => $request->get('tags', null), // optional
         ]);
     }
