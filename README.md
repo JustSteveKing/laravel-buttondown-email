@@ -5,9 +5,9 @@
 ![](./laravel-buttondown-email.png)
 
 </p>
-∏
+
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/juststeveking/laravel-buttondown-email.svg?style=flat-square)](https://packagist.org/packages/juststeveking/laravel-buttondown-email)
-![Tests](https://github.com/juststeveking/laravel-buttondown-email/workflows/Tests/badge.svg?branch=main)
+[![Tests](https://github.com/juststeveking/laravel-buttondown-email/workflows/Tests/badge.svg?branch=main)
 [![Total Downloads](https://img.shields.io/packagist/dt/juststeveking/laravel-buttondown-email.svg?style=flat-square)](https://packagist.org/packages/juststeveking/laravel-buttondown-email)
 
 
