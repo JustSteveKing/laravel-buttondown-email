@@ -6,11 +6,13 @@ namespace JustSteveKing\Laravel\ButtonDownEmail\Tests;
 
 use RuntimeException;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Http;
 use JustSteveKing\ParameterBag\ParameterBag;
 use JustSteveKing\Laravel\ButtonDownEmail\Client;
 use JustSteveKing\Laravel\ButtonDownEmail\DTO\BaseSubscriber;
 use JustSteveKing\Laravel\ButtonDownEmail\Resources\Subscribers;
 use JustSteveKing\Laravel\ButtonDownEmail\Contracts\ClientContract;
+use Symfony\Component\HttpFoundation\Response;
 
 class ClientTest extends TestCase
 {
@@ -23,6 +25,36 @@ class ClientTest extends TestCase
 
         $this->client = resolve(Client::class);
         $this->testEmail = 'juststevemcd+test@gmail.com';
+
+        $endpoint = config('buttondown.api.url');
+        $this->client->fake([
+            "{$endpoint}/ping" => Http::response(
+                body: null,
+                status: Response::HTTP_OK,
+            ),
+            "{$endpoint}/subscribers" => Http::response(
+                body: [
+                    'count' => 1,
+                    'results' => [
+                        [
+                            'creation_date' => '2021-05-14T11:37:29.828600Z',
+                            'email' => 'test@email.com',
+                            'id' => '12341234-1234-1234-1234-12341234',
+                            'notes' => 'testing testing',
+                            'referrer_url' => 'https://buttondown.email.subscribers',
+                            'metadata' => [],
+                            'secondary_id' => 1,
+                            'subscriber_type' => 'regular',
+                            'source' => 'organic',
+                            'tags' => [],
+                            'utm_campaign' => '',
+                            'utm_medium' => '',
+                            'utm_source' => '',
+                        ]
+                    ]
+                ]
+            )
+        ]);
     }
 
     /**

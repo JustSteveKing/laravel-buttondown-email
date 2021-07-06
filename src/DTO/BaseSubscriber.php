@@ -31,7 +31,9 @@ class BaseSubscriber implements SubscriberContract
     public static function hydrate(array $attributes): self
     {
         return new self(
-            creationDate: Carbon::parse($attributes['creation_date']),
+            creationDate: isset($attributes['creation_date'])
+                ? Carbon::parse($attributes['creation_date'])
+                : null,
             email: $attributes['email'],
             id: $attributes['id'],
             notes: $attributes['notes'],
